@@ -13,7 +13,7 @@
 
 @property (retain, readwrite, nonatomic)    NSString                *idKeyPath;
 @property (retain, readwrite, nonatomic)    UITableView             *tableView;
-@property (retain, readwrite, nonatomic)    NSMutableArray          *items;
+@property (retain, readwrite, nonatomic)    NSArray                 *items;
 @property (assign, readwrite, nonatomic)    int                      sectionIndex;
 @property (assign, readwrite, nonatomic)    UITableViewRowAnimation  deleteAnimation;
 @property (assign, readwrite, nonatomic)    UITableViewRowAnimation  updateAnimation;
@@ -22,7 +22,7 @@
 @property (assign, readonly, nonatomic)     BOOL                     isUpdating;
 
 -(id)init;
--(id)initWithIdKeyPath:(NSString *)idKeyPath tableView:(UITableView *)tableView sectionIndex:(int)sectionIndex items:(NSMutableArray *)items;
+-(id)initWithIdKeyPath:(NSString *)idKeyPath tableView:(UITableView *)tableView sectionIndex:(int)sectionIndex items:(NSArray *)items;
 
 -(void)beginUpdates;
 -(void)endUpdates;

@@ -65,7 +65,7 @@
 }
 
 
--(id)initWithIdKeyPath:(NSString *)idKeyPath tableView:(UITableView *)tableView sectionIndex:(int)sectionIndex items:(NSMutableArray *)items
+-(id)initWithIdKeyPath:(NSString *)idKeyPath tableView:(UITableView *)tableView sectionIndex:(int)sectionIndex items:(NSArray *)items
 {
     if ( (self=[self init]) )
     {
