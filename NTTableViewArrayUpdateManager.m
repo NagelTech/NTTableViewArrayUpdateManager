@@ -85,22 +85,31 @@
 }
 
 
+-(int)itemsCount
+{
+    return (self.items) ? self.items.count : 0;
+}
+
+
 -(void)beginUpdates
 {
     self.isUpdating = YES;
     
     // create our snapshot...
     
-    mSnapshot = [NSMutableArray arrayWithCapacity:self.items.count];
+    mSnapshot = [NSMutableArray arrayWithCapacity:[self itemsCount]];
     
-    for(id item in self.items)
+    if ( [self itemsCount] > 0 )
     {
-        NTTTableViewArraySnapshotItem *snapshotItem = [[NTTTableViewArraySnapshotItem alloc] init];
-        
-        snapshotItem.itemId = [self getIdForItem:item];
-        snapshotItem.itemHash = [item hash];
-        
-        [mSnapshot addObject:snapshotItem];
+        for(id item in self.items)
+        {
+            NTTTableViewArraySnapshotItem *snapshotItem = [[NTTTableViewArraySnapshotItem alloc] init];
+            
+            snapshotItem.itemId = [self getIdForItem:item];
+            snapshotItem.itemHash = [item hash];
+            
+            [mSnapshot addObject:snapshotItem];
+        }
     }
     
     // Tell the tableview we are doing updates...
@@ -126,9 +135,9 @@
 {
     int expectedCount = mSnapshot.count - deletes.count + inserts.count;
     
-    if ( self.items.count != expectedCount )
+    if ( [self itemsCount]  != expectedCount )
     {
-        ERR(@"ERROR: NTTableViewArrayUpdateManager failed: actual count = %d, expected: %d original - %d deletes + %d inserts = %d", self.items.count, mSnapshot.count, deletes.count, inserts.count, expectedCount);
+        ERR(@"ERROR: NTTableViewArrayUpdateManager failed: actual count = %d, expected: %d original - %d deletes + %d inserts = %d", [self itemsCount], mSnapshot.count, deletes.count, inserts.count, expectedCount);
         
         return NO;
     }
@@ -148,7 +157,7 @@
     int snapshotIndex = 0;
     int index = 0;
     
-    while ( snapshotIndex < mSnapshot.count || index < self.items.count )
+    while ( snapshotIndex < mSnapshot.count || index < [self itemsCount] )
     {
         NSString *action = nil;
         BOOL snapshotUsed = NO;
@@ -201,7 +210,7 @@
         
         if ( itemsUsed )
         {
-            if ( index < self.items.count )
+            if ( index < [self itemsCount] )
             {
                 id item = [self.items objectAtIndex:index];
                 id itemId = [self getIdForItem:item];
@@ -232,10 +241,13 @@
     for(NTTTableViewArraySnapshotItem *snapshotItem in mSnapshot)
         [snapshotIds addObject:snapshotItem.itemId];
     
-    NSMutableSet *itemIds = [NSMutableSet setWithCapacity:self.items.count];
+    NSMutableSet *itemIds = [NSMutableSet setWithCapacity:[self itemsCount]];
     
-    for(id item in self.items)
-        [itemIds addObject:[self getIdForItem:item]];
+    if ( [self itemsCount] > 0 )
+    {
+        for(id item in self.items)
+            [itemIds addObject:[self getIdForItem:item]];
+    }
 
     // First, Figure out what deletes or updates will need to be done...
     
@@ -245,7 +257,7 @@
     
     int snapshotIndex = 0;
     
-    for(int index=0; index<self.items.count; index++)
+    for(int index=0; index<[self itemsCount]; index++)
     {
         id item = [self.items objectAtIndex:index];
         id itemId = [self getIdForItem:item];
