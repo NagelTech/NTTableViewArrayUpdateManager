@@ -9,7 +9,7 @@
 #import "NTTableViewArrayUpdateManager.h"
 
 
-//#define DEBUG_UPDATE_MANAGER
+#define DEBUG_UPDATE_MANAGER
 
 
 #ifdef DEBUG_UPDATE_MANAGER
@@ -232,7 +232,7 @@
 #endif
 
 
--(void)endUpdates
+-(int)getInserts:(NSIndexSet **)retInserts deletes:(NSIndexSet **)retDeletes updates:(NSIndexSet **)retUpdates
 {
     //  Create a lookup of all id's that were in the snapshot...
     
@@ -248,7 +248,7 @@
         for(id item in self.items)
             [itemIds addObject:[self getIdForItem:item]];
     }
-
+    
     // First, Figure out what deletes or updates will need to be done...
     
     NSMutableIndexSet *inserts = [NSMutableIndexSet indexSet];
@@ -261,8 +261,8 @@
     {
         id item = [self.items objectAtIndex:index];
         id itemId = [self getIdForItem:item];
-
-//        DBG(@" --> index=%d, id=%@", index, itemId);
+        
+        //        DBG(@" --> index=%d, id=%@", index, itemId);
         
         if ( ![snapshotIds containsObject:itemId] )     // if it's not in our snapshot, it's an add, go ahead and track that...
         {
@@ -272,11 +272,11 @@
         }
         
         int itemHash = [item hash];
-
+        
         while( snapshotIndex < mSnapshot.count )
         {
             NTTTableViewArraySnapshotItem *snapshotItem = [mSnapshot objectAtIndex:snapshotIndex];
-//            DBG(@"     snapshotIndex=%d, id=%@", snapshotIndex, snapshotItem.itemId);
+            //            DBG(@"     snapshotIndex=%d, id=%@", snapshotIndex, snapshotItem.itemId);
             
             if ( [snapshotItem.itemId isEqual:itemId] )        // ahh we have found the matching item.
             {
@@ -286,7 +286,7 @@
                 {
                     // if hashes don't match, then it must be an update...
                     DBG(@"update: %d", snapshotIndex);
-
+                    
                     [updates addIndex:snapshotIndex];
                 }
                 
@@ -307,7 +307,7 @@
             // the items don't match & not an update, track as a deletion...
             
             DBG(@"delete: %d", snapshotIndex);
-
+            
             [deletes addIndex:snapshotIndex];
             
             [snapshotIds removeObject:snapshotItem.itemId];
@@ -341,6 +341,29 @@
         [snapshotIds removeObject:snapshotItem.itemId];
         ++snapshotIndex;
     }
+    
+    if ( retInserts )
+        *retInserts = inserts;
+    
+    if ( retDeletes )
+        *retDeletes = deletes;
+    
+    if ( retUpdates )
+        *retUpdates = updates;
+    
+    return (inserts.count + updates.count + deletes.count);
+    
+}
+
+
+-(int)endUpdates
+{
+    
+    NSIndexSet *inserts;
+    NSIndexSet *deletes;
+    NSIndexSet *updates;
+    
+    int numChanges = [self getInserts:&inserts deletes:&deletes updates:&updates];
 
 #ifdef DEBUG_UPDATE_MANAGER
     [self dumpDeletes:deletes updates:updates inserts:inserts];
@@ -367,7 +390,9 @@
     [self.tableView endUpdates];
     
     self.isUpdating = NO;
-    mSnapshot = nil;  
+    mSnapshot = nil;
+    
+    return numChanges;
 }
 
 

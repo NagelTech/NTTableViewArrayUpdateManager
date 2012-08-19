@@ -24,7 +24,9 @@
 -(id)init;
 -(id)initWithIdKeyPath:(NSString *)idKeyPath tableView:(UITableView *)tableView sectionIndex:(int)sectionIndex items:(NSArray *)items;
 
+-(int)getInserts:(NSIndexSet **)inserts deletes:(NSIndexSet **)deletes updates:(NSIndexSet **)updates;
+
 -(void)beginUpdates;
--(void)endUpdates;
+-(int)endUpdates;
                                  
 @end
