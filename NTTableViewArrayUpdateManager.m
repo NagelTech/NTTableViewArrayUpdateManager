@@ -9,7 +9,7 @@
 #import "NTTableViewArrayUpdateManager.h"
 
 
-#define DEBUG_UPDATE_MANAGER
+//#define DEBUG_UPDATE_MANAGER
 
 
 #ifdef DEBUG_UPDATE_MANAGER
