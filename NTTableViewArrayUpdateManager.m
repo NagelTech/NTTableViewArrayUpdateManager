@@ -114,7 +114,8 @@
     
     // Tell the tableview we are doing updates...
     
-    [self.tableView beginUpdates];
+    if ( !self.disableTableViewBeginEndUpdates )
+        [self.tableView beginUpdates];
 }
 
 
@@ -387,7 +388,8 @@
         [self.tableView insertRowsAtIndexPaths:[self indexPathsForIndexSet:inserts] withRowAnimation:self.insertAnimation];
     }
 
-    [self.tableView endUpdates];
+    if ( !self.disableTableViewBeginEndUpdates )
+        [self.tableView endUpdates];
     
     self.isUpdating = NO;
     mSnapshot = nil;

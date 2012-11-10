@@ -14,6 +14,7 @@
 @property (retain, readwrite, nonatomic)    NSString                *idKeyPath;
 @property (retain, readwrite, nonatomic)    UITableView             *tableView;
 @property (retain, readwrite, nonatomic)    NSArray                 *items;
+@property (assign, readwrite, nonatomic)    BOOL                     disableTableViewBeginEndUpdates;
 @property (assign, readwrite, nonatomic)    int                      sectionIndex;
 @property (assign, readwrite, nonatomic)    UITableViewRowAnimation  deleteAnimation;
 @property (assign, readwrite, nonatomic)    UITableViewRowAnimation  updateAnimation;
