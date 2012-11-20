@@ -108,6 +108,9 @@
             snapshotItem.itemId = [self getIdForItem:item];
             snapshotItem.itemHash = [item hash];
             
+            if ( !snapshotItem.itemId )
+                snapshotItem.itemId = [NSNull null];
+            
             [mSnapshot addObject:snapshotItem];
         }
     }
@@ -247,7 +250,14 @@
     if ( [self itemsCount] > 0 )
     {
         for(id item in self.items)
-            [itemIds addObject:[self getIdForItem:item]];
+        {
+            id value = [self getIdForItem:item];
+            
+            if ( !value )
+                value = [NSNull null];
+            
+            [itemIds addObject:value];
+        }
     }
     
     // First, Figure out what deletes or updates will need to be done...
@@ -262,6 +272,9 @@
     {
         id item = [self.items objectAtIndex:index];
         id itemId = [self getIdForItem:item];
+        
+        if ( !itemId )
+            itemId = [NSNull null];
         
         //        DBG(@" --> index=%d, id=%@", index, itemId);
         
