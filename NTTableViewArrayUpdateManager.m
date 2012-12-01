@@ -135,6 +135,22 @@
 }
 
 
+-(NSIndexSet *)sectionIndexesForIndexSet:(NSIndexSet *)indexSet
+{
+    if ( self.sectionIndex == 0 )
+        return indexSet;
+    
+    NSMutableIndexSet *sectionIndexes = [[NSMutableIndexSet alloc] init];
+    
+    [indexSet enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop)
+    {
+        [sectionIndexes addIndex:self.sectionIndex + idx];
+    }];
+    
+    return sectionIndexes;
+}
+
+
 -(BOOL)validateDeletes:(NSIndexSet *)deletes updates:(NSIndexSet *)updates inserts:(NSIndexSet *)inserts
 {
     int expectedCount = mSnapshot.count - deletes.count + inserts.count;
@@ -389,16 +405,30 @@
     {
         // Ok we failed to calcule the inserts/deletes correctly, let's just do a reload...
         
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
+        if ( self.sectionBasedTable )
+            [self.tableView reloadData]; // technically we should reload sections starting at self.sectionIndex
+        
+        else
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     
     else
     {
         // Now let's do the actual animations...
         
-        [self.tableView deleteRowsAtIndexPaths:[self indexPathsForIndexSet:deletes] withRowAnimation:self.deleteAnimation];
-        [self.tableView reloadRowsAtIndexPaths:[self indexPathsForIndexSet:updates] withRowAnimation:self.updateAnimation];
-        [self.tableView insertRowsAtIndexPaths:[self indexPathsForIndexSet:inserts] withRowAnimation:self.insertAnimation];
+        if ( self.sectionBasedTable )
+        {
+            [self.tableView deleteSections:[self sectionIndexesForIndexSet:deletes] withRowAnimation:self.deleteAnimation];
+            [self.tableView reloadSections:[self sectionIndexesForIndexSet:updates] withRowAnimation:self.updateAnimation];
+            [self.tableView insertSections:[self sectionIndexesForIndexSet:inserts] withRowAnimation:self.insertAnimation];
+        }
+
+        else
+        {
+            [self.tableView deleteRowsAtIndexPaths:[self indexPathsForIndexSet:deletes] withRowAnimation:self.deleteAnimation];
+            [self.tableView reloadRowsAtIndexPaths:[self indexPathsForIndexSet:updates] withRowAnimation:self.updateAnimation];
+            [self.tableView insertRowsAtIndexPaths:[self indexPathsForIndexSet:inserts] withRowAnimation:self.insertAnimation];
+        }
     }
 
     if ( !self.disableTableViewBeginEndUpdates )
