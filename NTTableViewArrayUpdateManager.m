@@ -272,6 +272,12 @@
             if ( !value )
                 value = [NSNull null];
             
+            if ( [itemIds containsObject:value] )   // detect duplicate itemId's, which will cause problems
+            {
+                ERR(@"ERROR: NTTableViewArrayUpdateManager failed: duplicate snapshot item id: \"%@\"", value);
+                return -1;
+            }
+            
             [itemIds addObject:value];
         }
     }
@@ -281,9 +287,11 @@
     NSMutableIndexSet *inserts = [NSMutableIndexSet indexSet];
     NSMutableIndexSet *deletes = [NSMutableIndexSet indexSet];
     NSMutableIndexSet *updates = [NSMutableIndexSet indexSet];
+    NSMutableSet *ids = [NSMutableSet setWithCapacity:[self itemsCount]];   // used for detecting duplicates
     
     int snapshotIndex = 0;
     
+   
     for(int index=0; index<[self itemsCount]; index++)
     {
         id item = [self.items objectAtIndex:index];
@@ -291,6 +299,16 @@
         
         if ( !itemId )
             itemId = [NSNull null];
+        
+        // Check for duplicates, which will cause problems...
+        
+        if ( [ids containsObject:itemId] )
+        {
+            ERR(@"ERROR: NTTableViewArrayUpdateManager failed: duplicate item id: \"%@\"", itemId);
+            return -1;
+        }
+        
+        [ids addObject:itemId];
         
         //        DBG(@" --> index=%d, id=%@", index, itemId);
         
@@ -401,9 +419,9 @@
 
     // let's validate our results...
     
-    if ( ![self validateDeletes:deletes updates:updates inserts:inserts] )
+    if ( (numChanges == -1) || ![self validateDeletes:deletes updates:updates inserts:inserts] )
     {
-        // Ok we failed to calcule the inserts/deletes correctly, let's just do a reload...
+        // Ok we failed to calculate the inserts/deletes correctly, let's just do a reload...
         
         if ( self.sectionBasedTable )
             [self.tableView reloadData]; // technically we should reload sections starting at self.sectionIndex
