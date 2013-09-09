@@ -114,11 +114,6 @@
             [mSnapshot addObject:snapshotItem];
         }
     }
-    
-    // Tell the tableview we are doing updates...
-    
-    if ( !self.disableTableViewBeginEndUpdates )
-        [self.tableView beginUpdates];
 }
 
 
@@ -432,6 +427,11 @@
     
     else
     {
+        // Tell the tableview we are doing updates...
+        
+        if ( !self.disableTableViewBeginEndUpdates )
+            [self.tableView beginUpdates];
+        
         // Now let's do the actual animations...
         
         if ( self.sectionBasedTable )
@@ -447,10 +447,10 @@
             [self.tableView reloadRowsAtIndexPaths:[self indexPathsForIndexSet:updates] withRowAnimation:self.updateAnimation];
             [self.tableView insertRowsAtIndexPaths:[self indexPathsForIndexSet:inserts] withRowAnimation:self.insertAnimation];
         }
+        
+        if ( !self.disableTableViewBeginEndUpdates )
+            [self.tableView endUpdates];
     }
-
-    if ( !self.disableTableViewBeginEndUpdates )
-        [self.tableView endUpdates];
     
     self.isUpdating = NO;
     mSnapshot = nil;
