@@ -1,9 +1,9 @@
 //
 //  NTTableViewArrayUpdateManager.m
-//  Clucks
+//  NagelTech
 //
 //  Created by Ethan Nagel on 8/9/12.
-//  Copyright (c) 2012 BitDonkey, LLC. All rights reserved.
+//  Copyright (c) 2012 NagelTech. All rights reserved.
 //
 
 #import "NTTableViewArrayUpdateManager.h"
