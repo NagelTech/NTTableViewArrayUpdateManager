@@ -35,7 +35,7 @@
 @interface NTTTableViewArraySnapshotItem : NSObject
 
 @property (readwrite, retain, nonatomic)    id  itemId;
-@property (readwrite, assign, nonatomic)    int itemHash;
+@property (readwrite, assign, nonatomic)    NSUInteger itemHash;
 
 @end
 
@@ -85,7 +85,7 @@
 }
 
 
--(int)itemsCount
+-(NSUInteger)itemsCount
 {
     return (self.items) ? self.items.count : 0;
 }
@@ -148,11 +148,11 @@
 
 -(BOOL)validateDeletes:(NSIndexSet *)deletes updates:(NSIndexSet *)updates inserts:(NSIndexSet *)inserts
 {
-    int expectedCount = mSnapshot.count - deletes.count + inserts.count;
+    NSUInteger expectedCount = mSnapshot.count - deletes.count + inserts.count;
     
     if ( [self itemsCount]  != expectedCount )
     {
-        ERR(@"ERROR: NTTableViewArrayUpdateManager failed: actual count = %d, expected: %d original - %d deletes + %d inserts = %d", [self itemsCount], mSnapshot.count, deletes.count, inserts.count, expectedCount);
+        ERR(@"ERROR: NTTableViewArrayUpdateManager failed: actual count = %d, expected: %d original - %d deletes + %d inserts = %d", (int)[self itemsCount], (int)mSnapshot.count, (int)deletes.count, (int)inserts.count, (int)expectedCount);
         
         return NO;
     }
@@ -169,8 +169,8 @@
     DBG(@"Action  |Original|New     |ID              ");
     DBG(@"--------|--------|--------|----------------");
     
-    int snapshotIndex = 0;
-    int index = 0;
+    NSUInteger snapshotIndex = 0;
+    NSUInteger index = 0;
     
     while ( snapshotIndex < mSnapshot.count || index < [self itemsCount] )
     {
@@ -284,10 +284,9 @@
     NSMutableIndexSet *updates = [NSMutableIndexSet indexSet];
     NSMutableSet *ids = [NSMutableSet setWithCapacity:[self itemsCount]];   // used for detecting duplicates
     
-    int snapshotIndex = 0;
-    
+    NSUInteger snapshotIndex = 0;
    
-    for(int index=0; index<[self itemsCount]; index++)
+    for(NSUInteger index=0; index<[self itemsCount]; index++)
     {
         id item = [self.items objectAtIndex:index];
         id itemId = [self getIdForItem:item];
@@ -314,7 +313,7 @@
             continue;   // all done!
         }
         
-        int itemHash = [item hash];
+        NSUInteger itemHash = [item hash];
         
         while( snapshotIndex < mSnapshot.count )
         {
@@ -394,7 +393,7 @@
     if ( retUpdates )
         *retUpdates = updates;
     
-    return (inserts.count + updates.count + deletes.count);
+    return (int)(inserts.count + updates.count + deletes.count);
     
 }
 

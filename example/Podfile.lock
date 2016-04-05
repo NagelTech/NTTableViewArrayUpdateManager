@@ -1,0 +1,14 @@
+PODS:
+  - NTTableViewArrayUpdateManager (0.27)
+
+DEPENDENCIES:
+  - NTTableViewArrayUpdateManager (from `../pod`)
+
+EXTERNAL SOURCES:
+  NTTableViewArrayUpdateManager:
+    :path: ../pod
+
+SPEC CHECKSUMS:
+  NTTableViewArrayUpdateManager: 4c0286c33418dc93f9969e401e2390100e71bb45
+
+COCOAPODS: 0.39.0

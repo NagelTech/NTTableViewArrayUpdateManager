@@ -1,0 +1,360 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC27555707CAB432CC29B88C /* libPods-NTTableViewArraySample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B664A9904378E13CFAE5E0 /* libPods-NTTableViewArraySample.a */; };
+		F016A04415D5860100AF85EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F016A04315D5860100AF85EF /* UIKit.framework */; };
+		F016A04615D5860100AF85EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F016A04515D5860100AF85EF /* Foundation.framework */; };
+		F016A04815D5860100AF85EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F016A04715D5860100AF85EF /* CoreGraphics.framework */; };
+		F016A04E15D5860100AF85EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F016A04C15D5860100AF85EF /* InfoPlist.strings */; };
+		F016A05015D5860100AF85EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F016A04F15D5860100AF85EF /* main.m */; };
+		F016A05415D5860100AF85EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F016A05315D5860100AF85EF /* AppDelegate.m */; };
+		F016A05E15D586B700AF85EF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F016A05C15D586B700AF85EF /* MainViewController.m */; };
+		F016A05F15D586B700AF85EF /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F016A05D15D586B700AF85EF /* MainViewController.xib */; };
+		F0E0EEDA1CB441770033C53E /* NTTableViewArrayUpdateManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F0E0EED91CB441770033C53E /* NTTableViewArrayUpdateManager.podspec */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		84B664A9904378E13CFAE5E0 /* libPods-NTTableViewArraySample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NTTableViewArraySample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B962BDD62BA9FCC714D8F93 /* Pods-NTTableViewArraySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTTableViewArraySample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NTTableViewArraySample/Pods-NTTableViewArraySample.debug.xcconfig"; sourceTree = "<group>"; };
+		E2F576549AD4B6FCD37ABA99 /* Pods-NTTableViewArraySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTTableViewArraySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NTTableViewArraySample/Pods-NTTableViewArraySample.release.xcconfig"; sourceTree = "<group>"; };
+		F016A03F15D5860100AF85EF /* NTTableViewArraySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NTTableViewArraySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F016A04315D5860100AF85EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F016A04515D5860100AF85EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F016A04715D5860100AF85EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F016A04B15D5860100AF85EF /* NTTableViewArraySample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTTableViewArraySample-Info.plist"; sourceTree = "<group>"; };
+		F016A04D15D5860100AF85EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F016A04F15D5860100AF85EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F016A05115D5860100AF85EF /* NTTableViewArraySample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTTableViewArraySample-Prefix.pch"; sourceTree = "<group>"; };
+		F016A05215D5860100AF85EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F016A05315D5860100AF85EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F016A05B15D586B700AF85EF /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		F016A05C15D586B700AF85EF /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		F016A05D15D586B700AF85EF /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		F0E0EED91CB441770033C53E /* NTTableViewArrayUpdateManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = NTTableViewArrayUpdateManager.podspec; path = ../../NTTableViewArrayUpdateManager.podspec; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F016A03C15D5860100AF85EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F016A04415D5860100AF85EF /* UIKit.framework in Frameworks */,
+				F016A04615D5860100AF85EF /* Foundation.framework in Frameworks */,
+				F016A04815D5860100AF85EF /* CoreGraphics.framework in Frameworks */,
+				AC27555707CAB432CC29B88C /* libPods-NTTableViewArraySample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EB6960D872A36A094C5D399 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B962BDD62BA9FCC714D8F93 /* Pods-NTTableViewArraySample.debug.xcconfig */,
+				E2F576549AD4B6FCD37ABA99 /* Pods-NTTableViewArraySample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F016A03415D5860100AF85EF = {
+			isa = PBXGroup;
+			children = (
+				F016A04915D5860100AF85EF /* NTTableViewArraySample */,
+				F016A04215D5860100AF85EF /* Frameworks */,
+				F016A04015D5860100AF85EF /* Products */,
+				2EB6960D872A36A094C5D399 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		F016A04015D5860100AF85EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F016A03F15D5860100AF85EF /* NTTableViewArraySample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F016A04215D5860100AF85EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F016A04315D5860100AF85EF /* UIKit.framework */,
+				F016A04515D5860100AF85EF /* Foundation.framework */,
+				F016A04715D5860100AF85EF /* CoreGraphics.framework */,
+				84B664A9904378E13CFAE5E0 /* libPods-NTTableViewArraySample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F016A04915D5860100AF85EF /* NTTableViewArraySample */ = {
+			isa = PBXGroup;
+			children = (
+				F016A05A15D5863F00AF85EF /* ViewControllers */,
+				F016A05215D5860100AF85EF /* AppDelegate.h */,
+				F016A05315D5860100AF85EF /* AppDelegate.m */,
+				F016A04A15D5860100AF85EF /* Supporting Files */,
+			);
+			path = NTTableViewArraySample;
+			sourceTree = "<group>";
+		};
+		F016A04A15D5860100AF85EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0E0EED91CB441770033C53E /* NTTableViewArrayUpdateManager.podspec */,
+				F016A04B15D5860100AF85EF /* NTTableViewArraySample-Info.plist */,
+				F016A04C15D5860100AF85EF /* InfoPlist.strings */,
+				F016A04F15D5860100AF85EF /* main.m */,
+				F016A05115D5860100AF85EF /* NTTableViewArraySample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F016A05A15D5863F00AF85EF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F016A05B15D586B700AF85EF /* MainViewController.h */,
+				F016A05C15D586B700AF85EF /* MainViewController.m */,
+				F016A05D15D586B700AF85EF /* MainViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F016A03E15D5860100AF85EF /* NTTableViewArraySample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F016A05715D5860100AF85EF /* Build configuration list for PBXNativeTarget "NTTableViewArraySample" */;
+			buildPhases = (
+				C0004922CF0834553FF9DBD7 /* Check Pods Manifest.lock */,
+				F016A03B15D5860100AF85EF /* Sources */,
+				F016A03C15D5860100AF85EF /* Frameworks */,
+				F016A03D15D5860100AF85EF /* Resources */,
+				49107C792141653E7144FA18 /* Embed Pods Frameworks */,
+				5375F5B8ED27A6F77D657C8F /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NTTableViewArraySample;
+			productName = NTTableViewArraySample;
+			productReference = F016A03F15D5860100AF85EF /* NTTableViewArraySample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F016A03615D5860100AF85EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Nagel Technologies, Inc.";
+			};
+			buildConfigurationList = F016A03915D5860100AF85EF /* Build configuration list for PBXProject "NTTableViewArraySample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F016A03415D5860100AF85EF;
+			productRefGroup = F016A04015D5860100AF85EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F016A03E15D5860100AF85EF /* NTTableViewArraySample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F016A03D15D5860100AF85EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F016A04E15D5860100AF85EF /* InfoPlist.strings in Resources */,
+				F0E0EEDA1CB441770033C53E /* NTTableViewArrayUpdateManager.podspec in Resources */,
+				F016A05F15D586B700AF85EF /* MainViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49107C792141653E7144FA18 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NTTableViewArraySample/Pods-NTTableViewArraySample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5375F5B8ED27A6F77D657C8F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NTTableViewArraySample/Pods-NTTableViewArraySample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0004922CF0834553FF9DBD7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F016A03B15D5860100AF85EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F016A05015D5860100AF85EF /* main.m in Sources */,
+				F016A05415D5860100AF85EF /* AppDelegate.m in Sources */,
+				F016A05E15D586B700AF85EF /* MainViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F016A04C15D5860100AF85EF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F016A04D15D5860100AF85EF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F016A05515D5860100AF85EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F016A05615D5860100AF85EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F016A05815D5860100AF85EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B962BDD62BA9FCC714D8F93 /* Pods-NTTableViewArraySample.debug.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTTableViewArraySample/NTTableViewArraySample-Prefix.pch";
+				INFOPLIST_FILE = "NTTableViewArraySample/NTTableViewArraySample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F016A05915D5860100AF85EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2F576549AD4B6FCD37ABA99 /* Pods-NTTableViewArraySample.release.xcconfig */;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NTTableViewArraySample/NTTableViewArraySample-Prefix.pch";
+				INFOPLIST_FILE = "NTTableViewArraySample/NTTableViewArraySample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F016A03915D5860100AF85EF /* Build configuration list for PBXProject "NTTableViewArraySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F016A05515D5860100AF85EF /* Debug */,
+				F016A05615D5860100AF85EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F016A05715D5860100AF85EF /* Build configuration list for PBXNativeTarget "NTTableViewArraySample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F016A05815D5860100AF85EF /* Debug */,
+				F016A05915D5860100AF85EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F016A03615D5860100AF85EF /* Project object */;
+}
